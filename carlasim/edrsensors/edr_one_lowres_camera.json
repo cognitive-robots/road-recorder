@@ -1,0 +1,28 @@
+{
+    "lidars3d": [
+        {
+            "label": "lidar",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.7,
+            "roll": 0.0,
+            "pitch": 0.0,
+            "yaw": 0.0
+        }
+    ],
+    "cameras": [
+        {
+            "label": "front-camera",
+            "x": 1.2,
+            "y": 0.0,
+            "z": 1.4,
+            "roll": 0.0,
+            "pitch": 0.0,
+            "yaw": 0.0,
+            "width": 360,
+            "height": 240,
+            "fov": 110,
+            "rate": 10.0
+        }
+    ]
+}

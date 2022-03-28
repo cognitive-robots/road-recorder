@@ -1,0 +1,39 @@
+{
+    "label": "VRU Near Miss 01",
+    "description": "Driving too close to a Vulnerable Road User (bicycle)",
+    "map": "Town03",
+    "hour": 11.25,
+    "spawn_index": 0,
+    "cctv_viewpoint": {
+        "x": -41.0,
+        "y": -11.0,
+        "z": 5.0,
+        "distance": 20.0,
+        "pitch": 10.0,
+        "yaw": 120.0
+    },
+    "triggered_actor_definitions": [
+        {
+            "actor": {
+                "label": "VRU",
+                "bp_index": 13,
+                "spawn_location": {
+                    "x": -36.0,
+                    "y": -4.7,
+                    "z": 0.0,
+                    "yaw": 180.0
+                }
+            },
+            "trigger": {
+                "x": -17.0,
+                "y": -17.0,
+                "radius": 8.0,
+                "action_velocity": {
+                    "x": -2.7,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "label": "Many Bikes 01",
+    "description": "Many Bikes in Town 10",
+    "map": "Town10HD",
+    "spawn_index": 0,
+    "cctv_viewpoint": {
+        "x": -66.0,
+        "y": 27.0,
+        "z": 5.0,
+        "distance": 25.0,
+        "pitch": 15.0,
+        "yaw": 220.0
+    },
+    "managed_actor_bp_indexes": [27],
+    "managed_actor_spawn_indexes": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+}

@@ -1,0 +1,39 @@
+{
+    "label": "Bicycle 01",
+    "description": "A bicycle cuts across the road in front of the car",
+    "map": "Town03",
+    "hour": 6.8,
+    "spawn_index": 89,
+    "cctv_viewpoint": {
+        "x": 170.0,
+        "y": 57.0,
+        "z": 5.0,
+        "distance": 20.0,
+        "pitch": 15.0,
+        "yaw": 110.0
+    },
+    "triggered_actor_definitions": [
+        {
+            "actor": {
+                "label": "Danger Bike",
+                "bp_index": 2,
+                "spawn_location": {
+                    "x": 166.0,
+                    "y": 40.0,
+                    "z": 0.0,
+                    "yaw": 85.0
+                }
+            },
+            "trigger": {
+                "x": 176.0,
+                "y": 55.0,
+                "radius": 8.0,
+                "action_velocity": {
+                    "x": 0.0,
+                    "y": 17.0,
+                    "z": 0.0
+                }
+            }
+        }
+    ]
+}

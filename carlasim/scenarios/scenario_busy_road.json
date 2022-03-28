@@ -1,0 +1,17 @@
+{
+    "label": "03",
+    "description": "Busy on the dual-carriageway",
+    "map": "Town03",
+    "hour": 17,
+    "spawn_index": 19,
+    "cctv_viewpoint": {
+        "x": 226.0,
+        "y": 9.0,
+        "z": 5.0,
+        "distance": 25.0,
+        "pitch": 15.0,
+        "yaw": 220.0
+    },
+    "managed_actor_bp_indexes": [0, 3, 6, 11, 18, 21, 25, 29],
+    "managed_actor_spawn_indexes": [7, 20, 21, 22, 24]
+}
