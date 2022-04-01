@@ -13,7 +13,7 @@ echo
 echo "-----------------------------------"
 echo "MANIPULATING PERCEPTION..."
 echo "-----------------------------------"
-./manipulate.sh $FOLDER 1 -m
+./manipulate.sh $FOLDER noisy -m
 
 echo 
 echo "-----------------------------------"
@@ -21,6 +21,6 @@ echo "RECONSTRUCTING..."
 echo "-----------------------------------"
 ./reconstruct.sh $FOLDER "" "" -v
 echo "-----------------------------------"
-./reconstruct.sh $FOLDER 1 "" -v
+./reconstruct.sh $FOLDER noisy "" -v
 echo "-----------------------------------"
-./reconstruct.sh $FOLDER 1 gt -v
+./reconstruct.sh $FOLDER noisy gt -v

@@ -11,14 +11,13 @@ The input and output paths must be different. The input will be something like t
 
     --input ~/data/edr/<date-time>/perception/logs/
 
-The output should be similar but with a '**variant**' suffix, e.g. '1' in this case:
+The output should be similar but with a '**variant**' suffix, e.g. 'noisy' in this case:
 
-    --output ~/data/edr/<date-time>/perception/logs-1/
+    --output ~/data/edr/<date-time>/perception/logs-noisy/
 
 The default parameters should get decent results but there are various options to change how it works. See:
 
     python3 manipulate_perception.py --help
-
 
 ### Convenience Script
 
