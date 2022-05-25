@@ -128,6 +128,8 @@ class World(object):
                 spawn_point = spawn_points[spawn_index]
                 print(f"Player spawn index: {spawn_index} of {spawn_count}")
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
+            
+        print(f"Player Actor ID: {self.player.id}")
 
         # Set up the EDR sensors.
         if self.edr_enabled:
