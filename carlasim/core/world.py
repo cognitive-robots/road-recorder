@@ -62,7 +62,7 @@ class World(object):
         self.hud = hud
         self.player = None
         self.edr = None
-        self.edr_sensor_config = args.edr_sensors
+        self.edr_sensor_config = args.edr_sensors if edr_config_exists else None
         self.edr_enabled = args.edr and edr_config_exists
         self.edr_sensor = None
         self.edr_perception = None
@@ -133,21 +133,22 @@ class World(object):
 
         # Set up the EDR sensors.
         if self.edr_enabled:
-            preevent_time = self._edr_pretime
-            postevent_time = self._edr_posttime
             self.edr = EDR()
             # Vehicle State
             self.edr_sensor = EDRVehicleStateSensor(
-                self.player, preevent_time, postevent_time
+                self.player, self._edr_pretime, self._edr_posttime
             )
             self.edr.add_sensor(self.edr_sensor)
             # Perception
             self.edr_perception = EDRPerceptionSensor(
-                self.player, preevent_time, postevent_time, self.world, PERCEPTION_RANGE
+                self.player, self._edr_pretime, self._edr_posttime,
+                self.world, PERCEPTION_RANGE
             )
             self.edr.add_sensor(self.edr_perception)
-            # Sensors
-            loader = EDRLoader(self.player, preevent_time, postevent_time)
+        
+        if self.edr_sensor_config:
+            # Load EDR Sensors (whether or not EDR is enabled)
+            loader = EDRLoader(self.player, self._edr_pretime, self._edr_posttime)
             loader.load_sensors(self.edr_sensor_config, self.edr)
 
         # Set up other sensors.
