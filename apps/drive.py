@@ -106,9 +106,10 @@ def game_loop(args):
             spectator = client.get_world().get_spectator()
             spectator.set_transform(vt)
 
-        display = pygame.display.set_mode(
-            (args.width, args.height), pygame.HWSURFACE | pygame.DOUBLEBUF
-        )
+        flags = pygame.HWSURFACE | pygame.DOUBLEBUF
+        if args.fullscreen:
+            flags = flags | pygame.FULLSCREEN
+        display = pygame.display.set_mode((args.width, args.height), flags)
 
         print("Lights On:", lights_on)
         hud = HUD(args.width, args.height)
@@ -184,6 +185,12 @@ def main():
         "--autopilot",
         action="store_true",
         help="enable autopilot"
+    )
+    argparser.add_argument(
+        "-f",
+        "--fullscreen",
+        action="store_true",
+        help="Run the application in fullscreen mode"
     )
     argparser.add_argument(
         "-e",
