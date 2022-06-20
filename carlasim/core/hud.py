@@ -143,7 +143,7 @@ class HUD(object):
         self.server_fps = 0
         self.frame = 0
         self.simulation_time = 0
-        self._show_info = True
+        self._show_info = False  # True
         self._info_text = []
         self._server_clock = pygame.time.Clock()
 
