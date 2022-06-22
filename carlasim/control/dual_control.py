@@ -16,6 +16,8 @@ import sys
 
 import carla
 
+THROTTLE_SCALE = 0.45
+
 if sys.version_info >= (3, 0):
     from configparser import ConfigParser
 else:
@@ -352,6 +354,10 @@ class DualControl(object):
                 if math.fabs(brake_input) >= self._throttle_deadband
                 else 1.0
             )
+        
+        throttle_scaled = 1.0 - ((1.0 - throttle_value) * THROTTLE_SCALE)
+        # print(f"THROTTLE: {throttle_scaled} from {throttle_value}")
+        throttle_value = throttle_scaled
 
         # print(steer_input, steer_value)
         K1 = 1.0  # 0.55
