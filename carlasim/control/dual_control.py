@@ -149,20 +149,21 @@ class DualControl(object):
                 return True
 
             elif event.type == pygame.JOYBUTTONDOWN:
-                if event.button == 0:
-                    world.restart()
-                elif event.button == 1:
-                    world.hud.toggle_info()
-                elif event.button == 2:
-                    world.camera_manager.toggle_camera()
-                elif event.button == 3:
-                    world.next_weather()
-                elif event.button == self._reverse_idx:
+                # if event.button == 0:
+                #     world.restart()
+                # elif event.button == 1:
+                #     world.hud.toggle_info()
+                # elif event.button == 2:
+                #     world.camera_manager.toggle_camera()
+                # elif event.button == 3:
+                #     world.next_weather()
+                # elif event.button == self._reverse_idx:
+                if event.button == self._reverse_idx:
                     self._control.gear = 1 if self._control.reverse else -1
-                elif event.button == self._handbrake_idx:
-                    self._handbrake_on = not self._handbrake_on
-                elif event.button == 23:
-                    world.camera_manager.next_sensor()
+                # elif event.button == self._handbrake_idx:
+                #     self._handbrake_on = not self._handbrake_on
+                # elif event.button == 23:
+                #     world.camera_manager.next_sensor()
 
             elif event.type == pygame.KEYUP:
                 if self._is_quit_shortcut(event.key):
