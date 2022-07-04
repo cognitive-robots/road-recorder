@@ -32,6 +32,9 @@ from carlasim.scenarios.scenario_manager import ScenarioManager
 from carlasim.scenarios.scenario_manager import Scenario
 
 
+APPLICATION_TITLE = "Driving Simulator"
+
+
 # ==============================================================================
 # -- game_loop() ---------------------------------------------------------------
 # ==============================================================================
@@ -110,6 +113,7 @@ def game_loop(args):
         if args.fullscreen:
             flags = flags | pygame.FULLSCREEN
         display = pygame.display.set_mode((args.width, args.height), flags)
+        pygame.display.set_caption(APPLICATION_TITLE)
 
         print("Lights On:", lights_on)
         hud = HUD(args.width, args.height)

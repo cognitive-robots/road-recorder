@@ -16,6 +16,8 @@ import sys
 
 import carla
 
+THROTTLE_SCALE = 0.45
+
 if sys.version_info >= (3, 0):
     from configparser import ConfigParser
 else:
@@ -33,6 +35,7 @@ try:
     from pygame.locals import K_DOWN
     from pygame.locals import K_ESCAPE
     from pygame.locals import K_F1
+    from pygame.locals import K_F8
     from pygame.locals import K_LEFT
     from pygame.locals import K_PERIOD
     from pygame.locals import K_RIGHT
@@ -352,6 +355,10 @@ class DualControl(object):
                 if math.fabs(brake_input) >= self._throttle_deadband
                 else 1.0
             )
+        
+        throttle_scaled = 1.0 - ((1.0 - throttle_value) * THROTTLE_SCALE)
+        # print(f"THROTTLE: {throttle_scaled} from {throttle_value}")
+        throttle_value = throttle_scaled
 
         # print(steer_input, steer_value)
         K1 = 1.0  # 0.55
@@ -402,4 +409,5 @@ class DualControl(object):
 
     @staticmethod
     def _is_quit_shortcut(key):
-        return (key == K_ESCAPE) or (key == K_q and pygame.key.get_mods() & KMOD_CTRL)
+        # return (key == K_ESCAPE) or (key == K_q and pygame.key.get_mods() & KMOD_CTRL)
+        return (key == K_F8) or (key == K_q and pygame.key.get_mods() & KMOD_CTRL)
