@@ -61,7 +61,7 @@ class World(object):
 
         self.hud = hud
         self.player = None
-        self.edr = None
+        self.edr = EDR()
         self.edr_sensor_config = args.edr_sensors if edr_config_exists else None
         self.edr_enabled = args.edr and edr_config_exists
         self.edr_sensor = None
@@ -132,8 +132,8 @@ class World(object):
         print(f"Player Actor ID: {self.player.id}")
 
         # Set up the EDR sensors.
+        self.edr.clear()
         if self.edr_enabled:
-            self.edr = EDR()
             # Vehicle State
             self.edr_sensor = EDRVehicleStateSensor(
                 self.player, self._edr_pretime, self._edr_posttime

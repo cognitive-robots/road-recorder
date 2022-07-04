@@ -41,6 +41,13 @@ class EDR(object):
         """
         self.sensors.append(sensor)
 
+    def clear(self):
+        """
+        Clear all sensors and events from the EDR.
+        """
+        self.sensors.clear()
+        self.clear_event()
+
     def clear_event(self):
         """
         Resets the EDR after an event, ready for a new event.

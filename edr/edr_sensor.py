@@ -39,13 +39,14 @@ class EDRSensor(object):
         print(
             "created:",
             self.__class__.__name__,
-            f"[{self.sensor_id}]" if self.sensor_id != "" else "",
+            f"[{self.sensor_id}]" if self.sensor_id else "",
         )
 
     def __del__(self):
         print(self.__class__.__name__, "destroyed")
         if self.sensor is not None:
             self.sensor.stop()
+            self.sensor.destroy()
 
     def clear_event(self):
         self.edr_buffer.clear()
