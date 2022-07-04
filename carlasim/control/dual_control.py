@@ -16,7 +16,7 @@ import sys
 
 import carla
 
-THROTTLE_SCALE = 0.45
+DEF_THROTTLE_SCALE = 1.0
 
 if sys.version_info >= (3, 0):
     from configparser import ConfigParser
@@ -94,6 +94,7 @@ class DualControl(object):
         else:
             raise NotImplementedError("Actor type not supported")
         self._steer_cache = 0.0
+        self.throttle_scale = DEF_THROTTLE_SCALE
         world.hud.notification("Press 'H' or '?' for help.", seconds=4.0)
 
         # initialize steering wheel/joystick
@@ -356,7 +357,7 @@ class DualControl(object):
                 else 1.0
             )
         
-        throttle_scaled = 1.0 - ((1.0 - throttle_value) * THROTTLE_SCALE)
+        throttle_scaled = 1.0 - ((1.0 - throttle_value) * self.throttle_scale)
         # print(f"THROTTLE: {throttle_scaled} from {throttle_value}")
         throttle_value = throttle_scaled
 

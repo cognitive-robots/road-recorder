@@ -19,6 +19,7 @@ import argparse
 import logging
 import math
 import os
+import re
 
 import carla
 import pygame
@@ -120,6 +121,10 @@ def game_loop(args):
         data_path = os.path.expanduser("~/data/edr/")
         world = World(args, client.get_world(), hud, data_path)
         controller = DualControl(world, args.autopilot, lights_on, args.controller)
+        map_name = client.get_world().get_map().name
+        print(f"Using map: {map_name}")
+        if re.search("Town10HD", map_name, re.IGNORECASE):
+            controller.throttle_scale = 0.5
 
         world.set_simulation_fps(20)
 
