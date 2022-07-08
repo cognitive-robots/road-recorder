@@ -123,8 +123,7 @@ def game_loop(args):
         controller = DualControl(world, args.autopilot, lights_on, args.controller)
         map_name = client.get_world().get_map().name
         print(f"Using map: {map_name}")
-        if re.search("Town10HD", map_name, re.IGNORECASE):
-            controller.throttle_scale = 0.5
+        controller.throttle_scale = args.limit_throttle
 
         world.set_simulation_fps(20)
 
@@ -245,6 +244,12 @@ def main():
         "--scenario",
         default="",
         help="name of scenario to run (default: not set)"
+    )
+    argparser.add_argument(
+        "--limit_throttle",
+        default=1.0,
+        type=float,
+        help="Throttle limiter (0.0 - 1.0) (default: 1.0)",
     )
     argparser.add_argument(
         "--near_miss_velocity",
